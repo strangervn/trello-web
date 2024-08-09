@@ -13,6 +13,7 @@ import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness'
 import Box from '@mui/material/Box'
+import  Container  from '@mui/material/Container'
 function ModeSelect() {
   
   const { mode, setMode } = useColorScheme();
@@ -53,33 +54,42 @@ function ModeSelect() {
     </FormControl>
   )
 }
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme();
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
-  return (
-    <Button
-      onClick={() => {
-        setMode(mode === 'light' ? 'dark' : 'light')
-      }}
-    >
-      {mode === 'light' ? 'Turn dark' : 'Turn light'}
-    </Button>
-  )
-}
+
 function App() {
 
   return (
-    <>
-      <ModeSelect/>
-      <hr />
-      <ModeToggle/>
-      <hr/>
-      <div>Van Ngoc</div>
-      <Typography variant="body2" color="text.secondary">Test Typography</Typography>
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-    </>
+    <Container disableGutters maxWidth={false} sx={{height:'100vh', backgroundColor:'primary.main'}}>
+      <Box sx={{
+        backgroundColor:'primary.light',
+        width:'100%',
+        height:(theme)=>theme.trelloCustom.appBarHeight,
+        display:'flex',
+        alignItems:'center'
+      }}>
+         <ModeSelect/>
+      </Box>
+      
+      <Box sx={{
+         backgroundColor:'primary.dark',
+         width:'100%',
+         height:(theme)=>theme.trelloCustom.boardBarHeight,
+         display:'flex',
+         alignItems:'center'
+      }}>
+        Board Bar
+      </Box>
+      <Box sx={{
+         backgroundColor:'primary.main',
+         width:'100%',
+         height:(theme)=> `calc(100vh - ${theme.trelloCustom.appBarHeight}-${theme.trelloCustom.boardBarHeight})`,
+         display:'flex',
+         alignItems:'center'
+      }}>
+
+      </Box>
+     
+      
+    </Container>
   )
 }
 
