@@ -12,7 +12,6 @@ import Typography from '@mui/material/Typography'
 import ContentCut from '@mui/icons-material/ContentCut'
 import ContentCopy from '@mui/icons-material/ContentCopy'
 import ContentPaste from '@mui/icons-material/ContentPaste'
-import Cloud from '@mui/icons-material/Cloud'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import DeleteIcon from '@mui/icons-material/Delete'
 import AddCardIcon from '@mui/icons-material/AddCard'
@@ -55,7 +54,7 @@ function BoardContent() {
                 overflowY: 'auto'
 
             }}>
-<Box sx={{
+            <Box sx={{
                 minWidth: '300px',
                 maxWidth: '300px',
                 bgcolor: (theme) => (theme.palette.mode == 'dark' ? '#333643' : '#ebecf0'),
@@ -244,3 +243,4 @@ function BoardContent() {
         </Box>
     )
 }
+export default BoardContent

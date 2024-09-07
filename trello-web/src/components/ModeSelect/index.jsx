@@ -7,7 +7,6 @@ import Select from '@mui/material/Select'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness'
-import Mode from '@mui/icons-material/Mode'
 import Box from '@mui/material/Box'
 
 function ModeSelect() {
