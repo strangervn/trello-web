@@ -12,6 +12,7 @@ import { Tooltip } from '@mui/material'
 import Button  from '@mui/material/Button'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 // import HelpOutlinedIcon from '@mui/material/HelpOutlined'
+import {capitalizeFirstLetter} from '~/utils/formatters'
 
 const MENU_SYLES = {
   color: 'white',
@@ -27,7 +28,9 @@ const MENU_SYLES = {
   }
 }
 
-function BoardBar() {
+function BoardBar(props) {
+ 
+
   return (
     <Box sx={{
       
@@ -46,14 +49,14 @@ function BoardBar() {
         <Chip sx={MENU_SYLES}
 
           icon={<DashboardIcon />} 
-          label="Public/Private Workspaces"
+          label={board?.title}
           clickable
 
           />
           <Chip sx={MENU_SYLES}
 
           icon={<VpnLockIcon />} 
-          label="Public/Private Workspaces"
+          label={capitalizeFirstLetter(board?.type)}
           clickable
 
           />
