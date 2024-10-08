@@ -16,17 +16,15 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import AddCardIcon from '@mui/icons-material/AddCard'
 import DragHandleIcon from '@mui/icons-material/DragHandle'
 import ListCard from './ListCards/ListCard'
+import {mapOrder} from './utils/sort'
 
 
-function Column() {
+function Column({ column }) {
     const [anchorEl, setAnchorEl] = useState(null)
     const open = Boolean(anchorEl)
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget)
-    }
-    const handleClose = () => {
-      setAnchorEl(null)
-    }
+    const handleClick = (event) => {setAnchorEl(event.currentTarget)}
+    const handleClose = () => {setAnchorEl(null)}
+    const orderedCoulmns = mapOrder(column?.cards, column?.cardOrderIds, '_id')
     return (
         <Box sx={{
             minWidth: '300px',
@@ -52,7 +50,7 @@ function Column() {
                     fontWeight: 'bold',
                     cursor: 'pointer'
                 }}>
-                    Column Tittle
+                    {column?.title}
                 </Typography>
                     <Box>
                         <Tooltip title="More options">
@@ -124,7 +122,7 @@ function Column() {
             </Box>
 
             {/* Box List Card */}
-            <ListCard/>
+            <ListCard cards = {orderedCoulmns}/>
            
             {/* Box Column Footer */}
             <Box sx={{
